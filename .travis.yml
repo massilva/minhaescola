@@ -30,4 +30,5 @@ deploy:
   file: build/ios/iphoneos/app.ipa
   skip_cleanup: true
   on:
-    branch: release
+    branch: master
+    repo: .
