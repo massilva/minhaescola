@@ -16,9 +16,7 @@ cache:
   directories:
   - $HOME/.pub-cache
 before_deploy:
-  - echo 'git.user.name: ${GIT_USER_NAME}'
   - git config --local user.name $GIT_USER_NAME
-  - echo 'git.user.email: ${GIT_USER_EMAIL}'
   - git config --local user.email $GIT_USER_EMAIL
   - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
   - git tag $TRAVIS_TAG
@@ -31,10 +29,11 @@ before_deploy:
   - popd
 deploy:
   provider: releases
-  github_token: $GITHUB_ACCESS_TOKEN
-  api_key: $GITHUB_ACCESS_TOKEN
+  api_key:
+    secure: $GITHUB_ACCESS_TOKEN
   file: build/ios/iphoneos/app.ipa
   skip_cleanup: true
   on:
     branch: master
+    repo: github/massilva/minhaescola
 
