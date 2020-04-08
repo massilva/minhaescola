@@ -1,4 +1,5 @@
 os: osx
+osx_image: xcode11.3
 language: generic
 before_script:
  - brew update
@@ -10,7 +11,7 @@ before_script:
  - brew install ios-deploy
  - git clone https://github.com/flutter/flutter.git -b beta
 script:
- - flutter/bin/flutter build ios --debug --no-codesign
+ - ./flutter/bin/flutter build ios --debug --no-codesign
 cache:
   directories:
   - $HOME/.pub-cache
