@@ -26,7 +26,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: 29d2cc5777904261b75f32cdaa71e8c886f65463ad52433f88d039edde95e0b9
+    secure: $GITHUB_ACCESS_TOKEN
   file: build/ios/iphoneos/app.ipa
   skip_cleanup: true
   on:
